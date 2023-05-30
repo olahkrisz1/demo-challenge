@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Articles</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>The New York Times</h1>
+    <ul>
+        <% articles.forEach((article)=> { %>
+            <li>
+                <a href="/article/<%= article._id %>">
+                    <%= article.title %>
+                </a>
+                <p>
+                    <%= article.text.substring(0, 100) + '...' %>
+                </p>
+                <% if (article.createdAt) { %>
+                    <p class="timestamp">Created: <%= article.createdAt.toUTCString() %>
+                    </p>
+                    <% } %>
+                        <% if (article.updatedAt) { %>
+                            <p class="timestamp">Updated: <%= article.updatedAt.toUTCString() %>
+                            </p>
+                            <% } %>
+            </li>
+            <% }); %>
+    </ul>
+    <a href="/new/article" class="add-new-article"><button>new article</button></a>
+</body>
+
+</html>

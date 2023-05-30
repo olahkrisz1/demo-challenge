@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Article</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <a href="/article/<%= article._id %>">Back</a>
+    <h1>Edit Article</h1>
+    <form method="POST" action="/edit/article/<%= article._id %>">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= article.title %>" required minlength="26">
+        <br>
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" required minlength="101">
+            <%= article.text %>
+        </textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
